@@ -24,7 +24,7 @@ sub IsPasswordValid2($password) {
          return 0;
     }
     #It has to be a better way to do this
-    my @adjacents[10] = [0,0,0,0,0,0,0,0,0,0];
+    my @adjacents[10] = 0 xx 10;
     my $lastNumber = $password.substr(0,1); 
 
     loop (my $i=1;$i < 6;$i++){
