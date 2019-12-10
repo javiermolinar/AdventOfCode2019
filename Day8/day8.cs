@@ -11,9 +11,10 @@ namespace ConsoleApp5
         {
             var path = Directory.GetCurrentDirectory() + "\\input.txt";
             var input = File.ReadAllText(path);
+            var myArray = input.ToCharArray().Select(x=>x-'0').ToArray();
           
-            int [] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2 };
-            int sizeOfLayer = 6;            
+           // int [] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2 };
+            int sizeOfLayer = 150;            
             List<List<int>> myImage = new List<List<int>>();
             List<int> myLayer = new List<int>();
 
@@ -29,7 +30,7 @@ namespace ConsoleApp5
                 }
             }
 
-            int minNumberOfZeroes = 0;
+            int minNumberOfZeroes = 100000000;
             int calculatedNumber = 0;
 
             foreach (var layer in myImage)
@@ -53,7 +54,7 @@ namespace ConsoleApp5
                     }
 
                 }
-                if(numberOf0 > minNumberOfZeroes)
+                if(numberOf0 < minNumberOfZeroes)
                 {
                     minNumberOfZeroes = numberOf0;
                     calculatedNumber = numberOf1 * numberOf2;
@@ -64,8 +65,6 @@ namespace ConsoleApp5
             Console.WriteLine(calculatedNumber);
 
 
-        }
-    }      
-
-       
+        }    
+    }   
 }
